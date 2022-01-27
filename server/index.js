@@ -5,9 +5,12 @@ require("dotenv").config();
 
 const connectDB = require("./db/connectDB");
 
+const errorHandler = require("./middlewares/errorHandler");
 const router = require("./routes/routes");
 
-app.use(router);
+app.use("/api/v1/store", router);
+
+app.use(errorHandler);
 
 connectDB();
 
